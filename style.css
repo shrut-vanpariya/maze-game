@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Define the CSS variable */
+    --maze-size: 10;
+    --cell-size: 60px;
+    --border-width: 2px;
+    --player-size: 40px;
+    --food-size: 25px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    /* height: 40px; */
+    /* border: 1px solid black; */
+}
+
+.nav-btn {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+
+/* CSS */
+.nav-btn {
+    background-color: #e1ecf4;
+    border-radius: 3px;
+    border: 1px solid #7aa7c7;
+    box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #39739d;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+.nav-btn:hover,
+.nav-btn:focus {
+    background-color: #b3d3ea;
+    color: #2c5777;
+}
+
+.nav-btn:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.nav-btn:active {
+    background-color: #a0c7e4;
+    box-shadow: none;
+    color: #2c5777;
+}
+
+#maze {
+    /* height: 600px; */
+    /* width: 600px; */
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* Grid */
+    display: grid;
+    grid-template-columns: repeat(var(--maze-size), var(--cell-size));
+    /* adjust as needed */
+    grid-template-rows: repeat(var(--maze-size), var(--cell-size));
+    /* adjust as needed */
+
+    /* margin: 0 100px 0 100px; */
+
+    border-top: var(--border-width) solid black;
+    border-left: var(--border-width) solid black;
+}
+
+.cell {
+    display: flex;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    justify-content: center;
+    align-items: center;
+    border-right: var(--border-width) solid black;
+    border-bottom: var(--border-width) solid black;
+}
+
+#controls {
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(2, 64px);
+    /* height: 200px; */
+    /* width: 300px; */
+    /* margin-top: 10px; */
+    /* border: 1px solid black; */
+}
+
+.control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 50px; */
+    /* width: 100px; */
+}
+
+.ctrlbtn {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+@keyframes text-left {
+    0% {
+        color: black;
+        left: var(--cell-size);
+    }
+
+    100% {
+        left: 0px;
+    }
+}
+
+@keyframes text-right {
+    0% {
+        color: black;
+        right: var(--cell-size);
+    }
+
+    100% {
+        right: 0px;
+    }
+}
+
+@keyframes text-up {
+    0% {
+        color: black;
+        top: var(--cell-size);
+    }
+
+    100% {
+        top: 0px;
+    }
+}
+
+@keyframes text-down {
+    0% {
+        color: black;
+        bottom: var(--cell-size);
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 600px) {
+    :root {
+        --cell-size: 30px;
+        --border-width: 1px;
+        --player-size: 20px;
+        --food-size: 12px;
+        /* Change the variable value for mobile devices */
+    }
+
+    #controls {
+        visibility: visible;
+    }
+}
