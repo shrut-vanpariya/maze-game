@@ -189,10 +189,10 @@ body {
 /* Media query for mobile devices */
 @media only screen and (max-width: 600px) {
     :root {
-        --cell-size: 30px;
+        --cell-size: 38px;
         --border-width: 1px;
-        --player-size: 20px;
-        --food-size: 12px;
+        --player-size: 25px;
+        --food-size: 16px;
         /* Change the variable value for mobile devices */
     }
 
